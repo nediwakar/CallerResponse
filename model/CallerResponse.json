@@ -1,0 +1,394 @@
+{
+    "friendlyName" : "CallerResponse",
+    "logQueries" : true,
+    "uniqueName" : "CallerResponse",
+    "defaults" : {
+        "defaults" : {
+            "assistant_initiation" : "task://greeting",
+            "fallback" : "task://fallback",
+            "collect" : {
+                "validate_on_failure" : "task://fallback"
+            }
+        }
+    },
+    "styleSheet" : {
+        "style_sheet" : {
+            "collect" : {
+                "validate" : {
+                    "on_failure" : {
+                        "repeat_question" : false,
+                        "messages" : [
+                            {
+                                "say" : {
+                                    "speech" : "I didn't get that. What did you say?"
+                                }
+                            },
+                            {
+                                "say" : {
+                                    "speech" : "I still didn't catch that. Please repeat."
+                                }
+                            },
+                            {
+                                "say" : {
+                                    "speech" : "Let's try one last time. Say it again please."
+                                }
+                            }
+                        ]
+                    },
+                    "on_success" : { "say" : { "speech" : "" } },
+                    "max_attempts" : 3
+                }
+            },
+            "voice" : {
+                "say_voice" : "Polly.Joanna-Neural"
+            },
+            "name" : ""
+        }
+    },
+    "fieldTypes" : [],
+    "tasks" : [
+        {
+            "uniqueName" : "dummy",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Address again. "
+                        }
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "dummy"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "Agent",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : "https://callerresponse-8330-dev.twil.io/index"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I want to talk to a person"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I want to talk to a rep"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "transfer me to a rep"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "transfer me to a representative"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "transfer me to an agent"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I want to talk to representative"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "agent transfer"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "agent please"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I want to talk to a agent"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "person"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "representative"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "Agent"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "Address",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : "https://callerresponse-8330-dev.twil.io/index"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "online payment"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I want to go online"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "online"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "website"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "mailing address"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "web address"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "web"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "mailing"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "address"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "ACH",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : "https://callerresponse-8330-dev.twil.io/index"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "bank account"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I want to pay using ACH"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "with ACH"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I can go with ACH"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "prefer to go with ACH"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "prefer to use my ACH"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "Use my ACH"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I want to pay using bank account"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I will go with my bank account"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "Use my bank account"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "with bank account"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I can go with my bank account"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "prefer to go with bank account"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "prefer to use my bank account"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "Use my bank account"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "use ach"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "bank"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "ach"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "CreditCard",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : "https://callerresponse-8330-dev.twil.io/index"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I want to use my credit card"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "Use my credit card"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "prefer to use my credit card"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "prefer to go with credit card"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I can go with my credit card"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "with credit card"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "Use my card"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I will go with my credit card"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I want to pay using credit card"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "credit"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "card"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "credit card"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "fallback",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : "https://callerresponse-8330-dev.twil.io/index"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : []
+        },
+        {
+            "uniqueName" : "greeting",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : "https://callerresponse-8330-dev.twil.io/index"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "options"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hi"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "again"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "repeat again"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "once more"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "repeat that"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "say that again"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "repeat"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hi!"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "Hi"
+                }
+            ]
+        }
+    ],
+    "modelBuild" : {
+        "uniqueName" : "CallerResponse_22-1-2021_1.48.42am"
+    }
+}

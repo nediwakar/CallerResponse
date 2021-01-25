@@ -1,0 +1,312 @@
+{
+    "friendlyName" : "",
+    "logQueries" : true,
+    "uniqueName" : "CallerResponse",
+    "defaults" : {
+        "defaults" : {
+            "assistant_initiation" : "task://greeting",
+            "fallback" : "task://fallback",
+            "collect" : {
+                "validate_on_failure" : "task://collect_fallback"
+            }
+        }
+    },
+    "styleSheet" : {
+        "style_sheet" : {
+            "collect" : {
+                "validate" : {
+                    "on_failure" : {
+                        "repeat_question" : false,
+                        "messages" : [
+                            {
+                                "say" : {
+                                    "speech" : "I didn't get that. What did you say?"
+                                }
+                            },
+                            {
+                                "say" : {
+                                    "speech" : "I still didn't catch that. Please repeat."
+                                }
+                            },
+                            {
+                                "say" : {
+                                    "speech" : "Let's try one last time. Say it again please."
+                                }
+                            }
+                        ]
+                    },
+                    "on_success" : { "say" : { "speech" : "" } },
+                    "max_attempts" : 4
+                }
+            },
+            "voice" : {
+                "say_voice" : "Polly.Joanna-Neural"
+            },
+            "name" : ""
+        }
+    },
+    "fieldTypes" : [],
+    "tasks" : [
+        {
+            "uniqueName" : "dummy",
+            "actions" : {
+                "actions" : [
+                    {
+                        "remember" : {
+                            "ChoiceName" : "Agent",
+                            "Agent" : true,
+                            "choice" : 5
+                        }
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : []
+        },
+        {
+            "uniqueName" : "Agent",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : "https://callerresponse-8330-dev.twil.io/index"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I want to talk to a person"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I want to talk to a rep"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "transfer me to a rep"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "transfer me to a representative"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "transfer me to an agent"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I want to talk to representative"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "agent transfer"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "agent please"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I want to talk to a agent"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "person"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "representative"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "Agent"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "Address",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : "https://callerresponse-8330-dev.twil.io/index"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "email"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "mail"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "website"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "mailing address"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "web address"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "web"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "mailing"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "address"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "ACH",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : "https://callerresponse-8330-dev.twil.io/index"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "bank"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "ach"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "CreditCard",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : "https://callerresponse-8330-dev.twil.io/index"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "credit"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "card"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "credit card"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "collect_fallback",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : "Looks like I'm having trouble. Apologies for that. Let's start again, how can I help you today?"
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : []
+        },
+        {
+            "uniqueName" : "fallback",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : "https://callerresponse-8330-dev.twil.io/index"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : []
+        },
+        {
+            "uniqueName" : "greeting",
+            "actions" : {
+                "actions" : [
+                    {
+                        "redirect" : "https://callerresponse-8330-dev.twil.io/index"
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hi"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "again"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "repeat again"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "once more"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I want hear the options again"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "repeat that"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "say that again"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "repeat"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hi!"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "Hi"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "goodbye",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : "Thank you! Please reach out again if you need anything. Goodbye."
+                    }
+                ]
+            },
+            "fields" : [],
+            "samples" : []
+        }
+    ],
+    "modelBuild" : {
+        "uniqueName" : "CallerResponse_20-1-2021_2.28.18am"
+    }
+}
